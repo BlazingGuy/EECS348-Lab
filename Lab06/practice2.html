@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Paragraph Styler</title>
+	<style>
+		.styled-paragraph
+		{
+			padding: 20px;
+			border: 2px solid black;
+			width: 60%;
+			margin: 20px auto;
+			text-align: center;
+		}
+		.controls 
+		{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		.controls input
+		{
+			margin: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class = "controls">
+		<h2>Customize Paragraph Style</h2>
+		<label for="textColor">Text Color (RGB):</label>
+		<input type="text" id="textColor" placeholder="e.g., 255,0,0">
+
+		<label for="borderColor">Border Color (RGB):</label>
+		<input type="text" id="borderColor" placeholder="e.g., 0,0,255">
+
+		<label for="borderWidth">Border Width (px):</label>
+		<input type="number" id="borderWidth" placeholder="e.g., 5">
+
+		<button onclick="applyStyles()">Apply Styles</button>
+	</div>
+
+	<p class="styled-paragraph" id="styledParagraph">This is a random paragraph, feel free to change the text color, border color, or border width</p>
+
+	<script>
+		function applyStyles()
+		{
+			const paragraph = document.getElementById("styledParagraph");
+			const textColor = document.getElementById("textColor").value;
+			const borderColor = document.getElementById("borderColor").value;
+			const borderWidth = document.getElementById("borderWidth").value;
+
+			if (textColor)
+			{
+				paragraph.style.color = 'rgb(${textColor})';
+			}
+			if (borderColor)
+			{
+				paragraph.style.borderColor = 'rgb(${borderColor})';
+			}
+			if (borderWidth)
+			{
+				paragraph.style.borderWidth = '${borderWidth}px';
+			}
+		}
+	</script>
+
+</body>
+
+</html>

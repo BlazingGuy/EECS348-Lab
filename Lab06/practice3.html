@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>User Password Verify</title>
+</head>
+
+<body>
+	<h2>User Password Verify</h2>
+	<form onsubmit="return verification()">
+		<label for="first_pass">Enter Password:</label>
+		<input type="password" id="first_pass" reqired><br><br>
+
+		<label for="next_pass">Confirm Password</label>
+		<input type="password" id="next_pass" required><br><br>
+
+		<button type="submit">Submit</button>
+
+	</form>
+		
+	<script>
+		function verification()
+		{
+			const pass1 = document.getElementById("first_pass").value;
+			const pass2 = document.getElementById("next_pass").value;
+
+			if (pass1.length <8)
+			{	
+				alert("Password is required to be 8 characters");
+				return false;
+			}
+
+			if (pass1 != pass2)
+			{
+				alert("Passwords don't match, try again.");
+				return false;
+			}
+
+			alert("Passwords match, entry successful!);
+			return true;
+		}
+
+	</script>
+</body>
+
+</html>
+
